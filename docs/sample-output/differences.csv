@@ -1,0 +1,8 @@
+﻿difference_id,page_a,page_b,category,severity,confidence,reference_value,candidate_value,reference_bbox,candidate_bbox,explanation,score_impact,signals
+document-00000,,,METADATA_CHANGED,minor,1.0,Northstar services - Invoice baseline,Northstar services - Revised invoice,,,Metadata title changed.,0.0,"[""metadata""]"
+0baf57e6fe754a5b718ad99b,1,1,TABLE_CELL_CHANGED,critical,1.0,"4,500.00","4,900.00","[465.0, 408.0, 555.0, 446.0]","[465.0, 408.0, 555.0, 446.0]","Table 1, row 4, column 4 changed.",0.697176,"[""semantic"", ""tables"", ""text"", ""visual""]"
+21cbc05645c6509c4caae1d0,1,1,TABLE_CELL_CHANGED,critical,1.0,"2,000.00","2,400.00","[465.0, 370.0, 555.0, 408.0]","[465.0, 370.0, 555.0, 408.0]","Table 1, row 3, column 4 changed.",0.697176,"[""semantic"", ""tables"", ""text"", ""visual""]"
+31e3fb49d7bd6fedea7f713a,1,1,FONT_SIZE_CHANGE,minor,1.0,25.0,26.0,"[40.0, 120.25, 222.05, 154.675]","[40.0, 119.18, 229.332, 154.982]",size: 25.0 → 26.0,0.258742,"[""layout"", ""typography"", ""visual""]"
+c32d15a7a9b25aba9d998550,1,1,POLARITY_CHANGE,critical,1.0,,not ,"[40.0, 524.175, 151.881, 539.289]","[102.975, 524.175, 121.323, 539.289]",Refunds are permitted. → Refunds are not permitted.,0.108938,"[""text"", ""semantic"", ""visual""]"
+e9138fec275513b9e54eeb4e,1,1,NUMERIC_CHANGE,critical,1.0,30,45,"[213.624, 502.175, 225.856, 517.289]","[213.624, 502.175, 225.856, 517.289]",Payment must be completed within 30 days. → Payment must be completed within 45 days.,0.108938,"[""text"", ""semantic"", ""visual""]"
+23a75b0a309c00737e2e129f,3,2,PAGE_REORDERED,minor,1.0,3,2,,,Page order changed relative to other aligned pages.,0.9804,"[""structure""]"

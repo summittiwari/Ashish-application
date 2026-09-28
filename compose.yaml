@@ -1,0 +1,27 @@
+services:
+  sentinel:
+    build:
+      context: .
+      args:
+        INSTALL_OCR: ${INSTALL_OCR:-0}
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      AUTH_TOKEN: ${AUTH_TOKEN:-}
+      RETENTION_DAYS: ${RETENTION_DAYS:-30}
+      MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-1073741824}
+      PAGE_CONCURRENCY: ${PAGE_CONCURRENCY:-2}
+      WORKER_MEMORY_MB: ${WORKER_MEMORY_MB:-4096}
+      SURYA_INFERENCE_URL: ${SURYA_INFERENCE_URL:-}
+    volumes:
+      - sentinel-data:/data
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    init: true
+    mem_limit: 8g
+    restart: unless-stopped
+volumes:
+  sentinel-data:

@@ -1,0 +1,2 @@
+# Optional extraction only. Requires an operator-controlled Surya 2 inference server.
+surya-ocr==0.22.1

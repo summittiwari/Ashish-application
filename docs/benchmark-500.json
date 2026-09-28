@@ -1,0 +1,222 @@
+{
+  "scenario": "native synthetic page benchmark",
+  "pages_per_pdf": 500,
+  "job": "ad19a8768b6741368b0dab376c3c212c",
+  "seconds_including_reports": 163.60793466500002,
+  "summary": {
+    "overall": 99.991,
+    "score_label": "Overall match",
+    "incomplete": false,
+    "scores": {
+      "text": 99.9923,
+      "semantic": 99.9,
+      "visual": 99.9999,
+      "layout": 100.0,
+      "typography": 100.0,
+      "images": null,
+      "logos": null,
+      "tables": null,
+      "structure": 100.0,
+      "forms": null,
+      "metadata": 100.0
+    },
+    "weights": {
+      "text": 25,
+      "semantic": 5,
+      "visual": 20,
+      "layout": 12,
+      "typography": 10,
+      "images": 7,
+      "logos": 3,
+      "tables": 8,
+      "structure": 5,
+      "forms": 5,
+      "metadata": 0
+    },
+    "effective_weights": {
+      "text": 0.324675,
+      "semantic": 0.064935,
+      "visual": 0.25974,
+      "layout": 0.155844,
+      "typography": 0.12987,
+      "structure": 0.064935
+    },
+    "formula": "Sum(dimension score \u00d7 active weight) / sum(active weights). N/A dimensions are excluded. Document dimension scores average applicable page pairs; page additions/removals score zero. Coverage is reported separately.",
+    "confidence_note": "Confidence values express rule or OCR evidence strength, not empirically calibrated probabilities.",
+    "total_differences": 1,
+    "categories": {
+      "NUMERIC_CHANGE": 1
+    },
+    "severity": {
+      "critical": 1
+    },
+    "distribution": {
+      "text": 1
+    },
+    "page_pairs": 500,
+    "matched_pages": 500,
+    "changed_pages": 1,
+    "failed_pages": 0,
+    "coverage": {
+      "text": {
+        "assessed": 500,
+        "total": 500
+      },
+      "semantic": {
+        "assessed": 500,
+        "total": 500
+      },
+      "visual": {
+        "assessed": 500,
+        "total": 500
+      },
+      "layout": {
+        "assessed": 500,
+        "total": 500
+      },
+      "typography": {
+        "assessed": 500,
+        "total": 500
+      },
+      "images": {
+        "assessed": 0,
+        "total": 500
+      },
+      "logos": {
+        "assessed": 0,
+        "total": 500
+      },
+      "tables": {
+        "assessed": 0,
+        "total": 500
+      },
+      "structure": {
+        "assessed": 500,
+        "total": 500
+      },
+      "forms": {
+        "assessed": 0,
+        "total": 500
+      }
+    },
+    "warnings": [],
+    "header_footer_groups": [],
+    "performance": {
+      "elapsed_seconds": 161.175,
+      "page_pairs_per_second": 3.102,
+      "coordinator_peak_rss_mb": 162.66,
+      "child_peak_rss_mb": 160.41,
+      "page_concurrency": 2
+    },
+    "engine": "sentinel-1.1.0",
+    "reference": {
+      "id": "29542b317b6345efa564e9d01149dff2",
+      "name": "500-reference.pdf",
+      "size": 285217,
+      "info": {
+        "pages": 500,
+        "metadata": {
+          "format": "PDF 1.7",
+          "title": "",
+          "author": "",
+          "subject": "",
+          "keywords": "",
+          "creator": "",
+          "producer": "",
+          "creationDate": "",
+          "modDate": "",
+          "trapped": "",
+          "encryption": null
+        },
+        "version": "PDF 1.7",
+        "encrypted": false,
+        "permissions": -4,
+        "dimensions": [
+          400.0,
+          300.0
+        ],
+        "orientation": "landscape",
+        "warnings": [],
+        "outlines": [],
+        "embedded_files": [],
+        "embedded_fonts": [
+          {
+            "name": "Helvetica",
+            "type": "Type1",
+            "encoding": "WinAnsiEncoding",
+            "embedded": false,
+            "subset": false
+          }
+        ],
+        "xml_metadata": "",
+        "layers": [],
+        "pdf_version": "1.7",
+        "custom_metadata": {},
+        "encryption": {
+          "encrypted": false
+        },
+        "structure": {},
+        "xfa_present": false,
+        "attachments": []
+      },
+      "created": 1790314630.4343035
+    },
+    "candidate": {
+      "id": "385f176eb67e47bca2fb886d7e1fc889",
+      "name": "500-candidate.pdf",
+      "size": 285217,
+      "info": {
+        "pages": 500,
+        "metadata": {
+          "format": "PDF 1.7",
+          "title": "",
+          "author": "",
+          "subject": "",
+          "keywords": "",
+          "creator": "",
+          "producer": "",
+          "creationDate": "",
+          "modDate": "",
+          "trapped": "",
+          "encryption": null
+        },
+        "version": "PDF 1.7",
+        "encrypted": false,
+        "permissions": -4,
+        "dimensions": [
+          400.0,
+          300.0
+        ],
+        "orientation": "landscape",
+        "warnings": [],
+        "outlines": [],
+        "embedded_files": [],
+        "embedded_fonts": [
+          {
+            "name": "Helvetica",
+            "type": "Type1",
+            "encoding": "WinAnsiEncoding",
+            "embedded": false,
+            "subset": false
+          }
+        ],
+        "xml_metadata": "",
+        "layers": [],
+        "pdf_version": "1.7",
+        "custom_metadata": {},
+        "encryption": {
+          "encrypted": false
+        },
+        "structure": {},
+        "xfa_present": false,
+        "attachments": []
+      },
+      "created": 1790314630.763456
+    }
+  },
+  "bytes": [
+    285217,
+    285217
+  ],
+  "limitation": "Sparse native pages at 72 DPI; not representative of scanned or image-heavy PDFs."
+}

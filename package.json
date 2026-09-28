@@ -1,0 +1,1 @@
+{"name":"pdf-sentinel-visual-qa","private":true,"version":"1.0.0","scripts":{"dev":"vite","check":"node --check app/static/app.js"},"devDependencies":{"vite":"^7.3.0"}}

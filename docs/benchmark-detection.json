@@ -1,0 +1,220 @@
+{
+  "engine": "sentinel-1.1.0",
+  "scope": "Synthetic category-level primary-finding counts; category and multiplicity must match. No OCR model, external corpus, localization-IoU evaluation, or independent producer suite included.",
+  "cases": [
+    {
+      "case": "identical",
+      "expected": {},
+      "actual": {},
+      "true_positive": 0,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "character",
+      "expected": {
+        "TEXT_MODIFIED": 1
+      },
+      "actual": {
+        "TEXT_MODIFIED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "number",
+      "expected": {
+        "NUMERIC_CHANGE": 1
+      },
+      "actual": {
+        "NUMERIC_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "font_family",
+      "expected": {
+        "FONT_CHANGE": 1
+      },
+      "actual": {
+        "FONT_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "font_size",
+      "expected": {
+        "FONT_SIZE_CHANGE": 1
+      },
+      "actual": {
+        "FONT_SIZE_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "movement_2pt",
+      "expected": {
+        "POSITION_CHANGE": 1
+      },
+      "actual": {
+        "POSITION_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "text_color",
+      "expected": {
+        "COLOR_CHANGE": 1
+      },
+      "actual": {
+        "COLOR_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "paragraph_added",
+      "expected": {
+        "TEXT_ADDED": 1
+      },
+      "actual": {
+        "TEXT_ADDED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "paragraph_removed",
+      "expected": {
+        "TEXT_REMOVED": 1
+      },
+      "actual": {
+        "TEXT_REMOVED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "polarity",
+      "expected": {
+        "POLARITY_CHANGE": 1
+      },
+      "actual": {
+        "POLARITY_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "obligation",
+      "expected": {
+        "OBLIGATION_CHANGE": 1
+      },
+      "actual": {
+        "OBLIGATION_CHANGE": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "image_replaced",
+      "expected": {
+        "IMAGE_CHANGED": 1
+      },
+      "actual": {
+        "IMAGE_CHANGED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "metadata_only",
+      "expected": {
+        "METADATA_CHANGED": 1
+      },
+      "actual": {
+        "METADATA_CHANGED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "form_value",
+      "expected": {
+        "FORM_CHANGED": 1
+      },
+      "actual": {
+        "FORM_CHANGED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "page_reordered",
+      "expected": {
+        "PAGE_REORDERED": 1
+      },
+      "actual": {
+        "PAGE_REORDERED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "page_removed",
+      "expected": {
+        "PAGE_REMOVED": 1
+      },
+      "actual": {
+        "PAGE_REMOVED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "case": "page_added",
+      "expected": {
+        "PAGE_ADDED": 1
+      },
+      "actual": {
+        "PAGE_ADDED": 1
+      },
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0
+    }
+  ],
+  "metrics": {
+    "true_positive": 16,
+    "false_positive": 0,
+    "false_negative": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_discovery_rate": 0.0,
+    "false_negative_rate": 0.0,
+    "false_positive_rate": null,
+    "false_positive_rate_note": "Undefined for open-ended finding detection: true negatives are not enumerable. Negative-document false-alarm rate is reported separately.",
+    "negative_document_false_alarm_rate": 0.0
+  },
+  "seconds": 0.7024179229999845
+}

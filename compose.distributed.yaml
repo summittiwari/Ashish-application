@@ -1,0 +1,89 @@
+# Separate deployment: docker compose -f compose.distributed.yaml up --build -d
+# All workers need the SAME /data volume. For multi-host use a POSIX shared filesystem with working locks.
+x-runtime: &runtime
+  build:
+    context: .
+    args:
+      INSTALL_OCR: ${INSTALL_OCR:-0}
+  environment: &environment
+    DATABASE_URL: postgresql+psycopg://sentinel:${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}@postgres:5432/sentinel
+    QUEUE_BACKEND: celery
+    REDIS_URL: redis://redis:6379/0
+    START_WORKER: "0"
+    AUTH_TOKEN: ${AUTH_TOKEN:?Set AUTH_TOKEN in .env}
+    RETENTION_DAYS: ${RETENTION_DAYS:-30}
+    PAGE_CONCURRENCY: ${PAGE_CONCURRENCY:-2}
+    WORKER_MEMORY_MB: ${WORKER_MEMORY_MB:-4096}
+    SURYA_INFERENCE_URL: ${SURYA_INFERENCE_URL:-}
+    S3_BUCKET: ${S3_BUCKET:-}
+    S3_ENDPOINT_URL: ${S3_ENDPOINT_URL:-}
+    S3_PREFIX: ${S3_PREFIX:-pdf-sentinel}
+    S3_SSE: ${S3_SSE:-}
+    AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION:-us-east-1}
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+  volumes:
+    - sentinel-data:/data
+  tmpfs:
+    - /tmp:size=256m,mode=1777
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  init: true
+  mem_limit: 8g
+services:
+  postgres:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: sentinel
+      POSTGRES_DB: sentinel
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U sentinel"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+    restart: unless-stopped
+  redis:
+    image: redis:7-bookworm
+    command: [redis-server, --appendonly, "yes"]
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: [CMD, redis-cli, ping]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+    restart: unless-stopped
+  init-db:
+    <<: *runtime
+    command: [python, -c, "from app.db import engine; print('Database initialized')"]
+    depends_on:
+      postgres: {condition: service_healthy}
+  api:
+    <<: *runtime
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      init-db: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    restart: unless-stopped
+  worker:
+    <<: *runtime
+    command: [celery, -A, app.queue:celery, worker, --loglevel=INFO, --concurrency=1, --pool=solo]
+    healthcheck: {disable: true}
+    depends_on:
+      init-db: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    restart: unless-stopped
+  scheduler:
+    <<: *runtime
+    command: [celery, -A, app.queue:celery, beat, --loglevel=INFO, --schedule=/data/celerybeat-schedule]
+    healthcheck: {disable: true}
+    depends_on:
+      init-db: {condition: service_completed_successfully}
+      redis: {condition: service_healthy}
+    restart: unless-stopped
+volumes:
+  sentinel-data:
+  postgres-data:
+  redis-data:

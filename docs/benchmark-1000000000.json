@@ -1,0 +1,8 @@
+{
+  "scenario": "large inert binary stream upload and inspection",
+  "bytes": 999999826,
+  "pages": 1,
+  "seconds": 10.393614369000261,
+  "test_process_peak_rss_mb": 415.546875,
+  "limitation": "Not an image-heavy stress test; large decoded images and complex pages require separate capacity validation."
+}

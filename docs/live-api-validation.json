@@ -1,0 +1,18 @@
+{
+  "comparison_status": "complete",
+  "findings": 7,
+  "exports": {
+    "report.pdf": 26435,
+    "detailed-report.zip": 68861,
+    "result.json": 14890,
+    "differences.csv": 1673,
+    "comparison.xlsx": 7513,
+    "annotated-a.pdf": 8279,
+    "annotated-b.pdf": 8033
+  },
+  "completed_page_checkpoints_reused": 3,
+  "cancellation_status": "cancelled",
+  "resume_after_cancel": "complete",
+  "authenticated_cookie_session": true,
+  "seconds": 12.98
+}
